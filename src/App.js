@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ServiceForm from './Component/ServiceForm';
+import ServiceList from './Component/ServiceList';
 
-function App() {
+
+const App = () => {
+  const [services, setServices] = useState([]);
+  const [editService, setEditService] = useState(null);
+
+  const addService = (newService) => {
+    if (editService) {
+      setServices(services.map(s => s.id === newService.id ? newService : s));
+      setEditService(null);
+    } else {
+      setServices([...services, { ...newService, id: Date.now() }]);
+    }
+  };
+
+  const deleteService = (id) => {
+    setServices(services.filter(service => service.id !== id));
+  };
+
+  const handleEdit = (service) => {
+    setEditService(service);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Healthcare Services</h1>
+      <ServiceForm onAddService={addService} editService={editService} />
+      <ServiceList services={services} onDeleteService={deleteService} onEditService={handleEdit} />
+    
     </div>
   );
-}
+};
 
 export default App;

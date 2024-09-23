@@ -36,3 +36,154 @@
     transform: rotate(360deg);
   }
 }
+
+/* css apply */
+
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the app */
+.app-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in;
+}
+
+/* Heading styles */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form input and textarea styling */
+.service-form input,
+.service-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+/* Button styling */
+.service-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-form button:hover {
+  background-color: #45a049;
+}
+
+/* Service list container */
+.service-list {
+  margin-top: 20px;
+}
+
+/* Individual service item styling */
+.service-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.service-item:hover {
+  transform: scale(1.02);
+}
+
+/* Service actions (buttons for edit and delete) */
+.service-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Styling for the edit and delete buttons */
+.service-actions button {
+  padding: 8px 12px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-actions button:hover {
+  background-color: #1976d2;
+}
+
+.service-actions button:last-child {
+  background-color: #f44336;
+}
+
+.service-actions button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation for slide-in from left */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Animation for fade-in and slide-up effect for service items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design: Mobile-specific styles */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 15px;
+  }
+
+  .service-actions {
+    flex-direction: column;
+  }
+
+  .service-actions button {
+    margin-bottom: 5px;
+  }
+}
